@@ -1,6 +1,6 @@
 !<template>
   <div>
-    <h1>Stock List</h1>
+    <h1>HelloWorld</h1>
     <div class = "row">
       <!-- Individual stocks -->
       <StockItem v-for="stock in stocks" :key="stock.name" :stock="stock" @buy="buyStock"
