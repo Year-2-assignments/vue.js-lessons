@@ -12,6 +12,8 @@
                         }"
                         >{{ stock.currency }} {{ stock.price.toFixed(4) }}
                         </span>
+                        <input class="form control" type="number" v-model="amount">
+                        <button class="btn btn-primary" @click="$emit('buy',stock.name,amount,stock.price)">Buy</button>
                 </div>
             </div>
 
@@ -28,9 +30,14 @@ export default {
     props:{
         stock:Object
 
+    },
+    data(){
+      return  {
+          amount:0
+        }
     }
-    
-    
+
+
 
 }
 </script>

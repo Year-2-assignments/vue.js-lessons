@@ -3,10 +3,13 @@
     <h1>Stock List</h1>
     <div class = "row">
       <!-- Individual stocks -->
-      <StockItem v-for="stock in stocks" :key="stock.name" :stock="stock"
+      <StockItem v-for="stock in stocks" :key="stock.name" :stock="stock" @buy="buyStock"
       />
       <!-- End of individual stocks -->
-
+      <h4>Portfolio</h4>
+      <h6>total portfolio value: </h6>
+      <PortfolioItem v-for="stock in portfolio" :key="stock.name" :stock="stock"
+       />
     </div>
   </div>
   
@@ -15,10 +18,12 @@
 
 <script>
 import StockItem from './StockItem.vue';
+import PortfolioItem from './PortfolioItem.vue';
 export default {
   name: "StockList",
   components:{
-    StockItem
+    StockItem,
+    PortfolioItem
   },
   data() {
     return {
@@ -32,6 +37,19 @@ export default {
     };
   },
   methods: {
+    boughtStock:" ",
+    buyStock(name,amount,price){
+      alert(name + " x"+ amount + " bought!" );
+      this.portfolio.push(
+        {
+          name,
+          amount,
+          price
+        }
+      )
+      amount=" "
+  
+    },
     updatePrices() {
       this.stocks.forEach((stock) => {
         stock.previousPrice = stock.price;
@@ -47,6 +65,7 @@ export default {
       this.updatePrices();
     }, 1000);
   },
+
 };
 </script>
 
