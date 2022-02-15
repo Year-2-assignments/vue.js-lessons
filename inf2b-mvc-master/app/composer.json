@@ -1,0 +1,14 @@
+{
+    "require": {
+        "endroid/qr-code": "^4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Routers\\": "routers",
+            "Controllers\\": "controllers",
+            "Services\\": "services",
+            "Models\\": "models",
+            "Repositories\\": "repositories"
+        }
+    }
+}
